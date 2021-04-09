@@ -1,4 +1,5 @@
 #%%
+import numpy as np
 import torch
 from torch.utils.data import random_split
 
@@ -7,11 +8,28 @@ from dataset import get_hp_tag
 # This process is simple to do on the fly; but we do this just to be safe about reproducibility.
 
 # len(ALPHABET_SIZES) = D, dimensionality of each item to remember
-ALPHABET_SIZES = [3]
+ALPHABET_SIZES = [2]
+ALPHABET_SIZES = [4]
+# ALPHABET_SIZES = [8]
+# ALPHABET_SIZES = [12]
+# ALPHABET_SIZES = [16]
+# ALPHABET_SIZES = [20]
+# ALPHABET_SIZES = [24]
+# ALPHABET_SIZES = [28]
+# ALPHABET_SIZES = [32]
 # ALPHABET_SIZES = [10]
-T_RANGE = range(5, 10 + 1)
-NUM_TRIALS_PER_T = 1000
-# NUM_TRIALS_PER_T = 4000
+START = 5
+END = 8
+OFFSET = 0
+# OFFSET = 4
+# OFFSET = 8
+# OFFSET = 12
+T_RANGE = np.arange(START, END + 1) + OFFSET
+# NUM_TRIALS_PER_T = 1000
+NUM_TRIALS_PER_T = 4000
+# NUM_TRIALS_PER_T = 12000
+# NUM_TRIALS_PER_T = 24000
+# NUM_TRIALS_PER_T = 48000
 
 hp_tag = get_hp_tag(ALPHABET_SIZES, T_RANGE)
 PAD_VALUE = -100
