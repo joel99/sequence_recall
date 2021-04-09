@@ -31,7 +31,7 @@ model.eval()
 #%%
 test_dataset = SequenceRecallDataset(config, split="test")
 
-index = 3
+index = 10
 item = test_dataset[index]
 print(item[0][:item[1]].squeeze())
 pred = model.predict(item)

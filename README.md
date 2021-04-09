@@ -17,6 +17,7 @@ Code Layout:
 - Models in `model.py`
 - Driver in `train.py`
 - Analysis + evaluation sanity checks in `analysis.py`.
+- Experimental configurations are in `config/`.
 
 - `data` contains some basic datasets. Don't push here often.
 - `shared_ckpts` contains checkpoints of good models to be used for fixed point analysis. Same as `data`, don't push here often.
