@@ -1,0 +1,9 @@
+TASK:
+    ALPHABET_SIZES: [2, 32]
+    T_RANGE: [5, 8]
+MODEL:
+    HIDDEN_SIZE: 32
+TRAIN:
+    EPOCHS: 200
+
+# 0.97
