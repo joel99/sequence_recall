@@ -9,7 +9,7 @@ from dataset import get_hp_tag
 
 # len(ALPHABET_SIZES) = D, dimensionality of each item to remember
 ALPHABET_SIZES = [2]
-ALPHABET_SIZES = [4]
+# ALPHABET_SIZES = [4]
 # ALPHABET_SIZES = [8]
 # ALPHABET_SIZES = [12]
 # ALPHABET_SIZES = [16]
@@ -20,12 +20,12 @@ ALPHABET_SIZES = [4]
 # ALPHABET_SIZES = [10]
 
 # 2c
-ALPHABET_SIZES = [64]
-ALPHABET_SIZES = [2, 32]
-ALPHABET_SIZES = [4, 16]
-ALPHABET_SIZES = [8, 8]
-ALPHABET_SIZES = [4, 4, 4]
-ALPHABET_SIZES = [2, 2, 2, 2, 2, 2]
+# ALPHABET_SIZES = [64]
+# ALPHABET_SIZES = [2, 32]
+# ALPHABET_SIZES = [4, 16]
+# ALPHABET_SIZES = [8, 8]
+# ALPHABET_SIZES = [4, 4, 4]
+# ALPHABET_SIZES = [2, 2, 2, 2, 2, 2]
 
 START = 5
 END = 8

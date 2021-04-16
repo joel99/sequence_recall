@@ -16,13 +16,15 @@ from sklearn.metrics import confusion_matrix
 # TODO figure out how to store the config in checkpoint and just load checkpoints
 config = './config/base.yaml'
 config = './config/large.yaml'
+config = './config/e2a_alph2.yaml'
 variant = osp.split(config)[1].split('.')[0]
 config = get_config(config)
 seed = 0
 version = 1
 root = Path(f'runs/{variant}-{seed}/lightning_logs/')
+run_path = sorted(root.iterdir(), key=osp.getmtime)[-1]
 # * This is the default output, if you want to play around with a different checkpoint load it here.
-model_ckpt = list(root.joinpath(f"version_{version}").joinpath('checkpoints').glob("*"))[0]
+model_ckpt = list(run_path.joinpath('checkpoints').glob("*"))[0]
 
 weights = torch.load(model_ckpt, map_location='cpu')
 model = SeqSeqRNN(config)

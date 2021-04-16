@@ -40,6 +40,7 @@ class SeqSeqRNN(pl.LightningModule):
 
         self.hold_period = config.MODEL.HOLD
         self.weight_decay = config.TRAIN.WEIGHT_DECAY
+        self.rehearse = config.MODEL.ALLOW_REHEARSAL
 
     def forward(self, input_seq, input_lengths):
         # A forward pass of this model will produce the output logits
@@ -91,6 +92,7 @@ class SeqSeqRNN(pl.LightningModule):
         input_seq, input_lengths = batch
         rnn_outputs = self(input_seq, input_lengths)
         predictions = [clf(rnn_outputs) for clf in self.classifiers] # T x B x H -> list of T x B x C
+        # TODO masked select on items outside frame
         losses = torch.stack([self.criterion(pred.permute(1, 2, 0), input_seq[..., i]) for i, pred in enumerate(predictions)], dim=-1)
         loss = losses.mean()
         self.log('train_loss', loss, prog_bar=True)

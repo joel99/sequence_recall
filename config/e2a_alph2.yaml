@@ -4,6 +4,7 @@ TASK:
 MODEL:
     HIDDEN_SIZE: 32
 TRAIN:
-    EPOCHS: 200
+    EPOCHS: 2000 # dataset size is too small
+    # EPOCHS: 200
 
 # 0.97

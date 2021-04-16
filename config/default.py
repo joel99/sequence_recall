@@ -31,6 +31,9 @@ _C.MODEL = CN()
 _C.MODEL.TYPE = 'gru'
 _C.MODEL.HIDDEN_SIZE = 32
 _C.MODEL.HOLD = 0 # Number of timesteps after encoding before go cue is given.
+_C.MODEL.ALLOW_REHEARSAL = False
+# Rehearsal: Assumes HOLD > 0 and HOLD % T_RANGE[-1] == 0.
+# Will allow the model to output tokens which are fed back in during HOLD period.
 
 # -----------------------------------------------------------------------------
 # Train Config
