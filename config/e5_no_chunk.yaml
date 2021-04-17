@@ -1,0 +1,12 @@
+TASK:
+    ALPHABET_SIZES: [4]
+    T_RANGE: [5, 8]
+MODEL:
+    HIDDEN_SIZE: 32
+    HOLD: 0
+    ALLOW_CHUNK: False
+TRAIN:
+    # EPOCHS: 2
+    EPOCHS: 200
+
+# 0.97

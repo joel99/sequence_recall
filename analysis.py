@@ -17,6 +17,7 @@ from sklearn.metrics import confusion_matrix
 config = './config/base.yaml'
 config = './config/large.yaml'
 config = './config/e2a_alph2.yaml'
+config = './config/e5_chunk.yaml'
 variant = osp.split(config)[1].split('.')[0]
 config = get_config(config)
 seed = 0
