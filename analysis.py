@@ -127,6 +127,7 @@ exp_rehearse = pd.concat([
 fig = plt.figure()
 ax = fig.gca()
 ax = sns.lineplot(x='Hold Period', y='Accuracy', hue='Variant', data=exp_rehearse, ax=ax)
+prep_plt(ax=ax)
 
 ax.legend(
     ["None", "Partial", "Full"],
