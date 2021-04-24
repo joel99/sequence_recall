@@ -7,7 +7,6 @@ import torch.nn.functional as F
 import pytorch_lightning as pl
 from torch.nn.utils.rnn import pad_packed_sequence, pack_padded_sequence
 
-# TODO add chunking
 PAD_TOKEN = -100
 
 class SeqSeqRNN(pl.LightningModule):
@@ -29,6 +28,7 @@ class SeqSeqRNN(pl.LightningModule):
 
         self.rehearse = config.MODEL.ALLOW_REHEARSAL
         self.chunk = config.MODEL.ALLOW_CHUNK
+        self.force_chunk = config.MODEL.FORCE_CHUNK
         self.pad_predict = config.MODEL.ALLOW_PAD_PREDICTION
 
         if self.rehearse:
@@ -186,6 +186,8 @@ class SeqSeqRNN(pl.LightningModule):
         chunked_losses = torch.stack([self.criterion(pred.permute(1, 2, 0), chunked_alts[..., i]) for i, pred in enumerate(predictions)], dim=-1)
         losses = losses.flatten(1, -1).mean(-1) # Group minima along T x C, not B
         chunked_losses = chunked_losses.flatten(1, -1).mean(-1)
+        if self.force_chunk:
+            return chunked_losses
         return torch.minimum(losses, chunked_losses) # Do this instead of average to prevent blurring, intuitively...
 
     def training_step(self, batch, batch_idx):

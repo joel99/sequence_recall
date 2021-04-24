@@ -3,7 +3,7 @@ TASK:
     T_RANGE: [5, 8]
 MODEL:
     HIDDEN_SIZE: 32
-    HOLD: 64
+    HOLD: 16
     ALLOW_REHEARSAL: False
 TRAIN:
     EPOCHS: 200

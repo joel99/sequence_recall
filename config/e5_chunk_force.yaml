@@ -3,9 +3,9 @@ TASK:
     T_RANGE: [5, 8]
 MODEL:
     HIDDEN_SIZE: 32
-    HOLD: 128
-    ALLOW_REHEARSAL: True
-    ALLOW_PAD_PREDICTION: True
+    HOLD: 0
+    ALLOW_CHUNK: True
+    FORCE_CHUNK: True
 TRAIN:
     EPOCHS: 200
 
